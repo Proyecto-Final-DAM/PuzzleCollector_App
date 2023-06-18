@@ -1,0 +1,78 @@
+<resources>
+    <string name="app_name" translatable="false">PuzzleCollector</string>
+    <string name="toolbarButton" translatable="false">ToolbarButton</string>
+    <string name="generalConfTitle" translatable="false">General</string>
+    <string name="buy"/>
+    <string name="events"/>
+    <string name="collection"/>
+    <string name="user"/>
+    <string name="config"/>
+    <string name="infoLogin"/>
+    <string name="login"/>
+    <string name="register"/>
+    <string name="btWishlist"/>
+    <string name="btCollection"/>
+    <string name="btSuggest"/>
+    <string name="btAddCollection"/>
+    <string name="btDelCollection"/>
+    <string name="tvPrice"/>
+    <string name="tvBrand"/>
+    <string name="confDarkModeTitle"/>
+    <string name="defaultDarkMode"/>
+    <string name="confLanguageTitle"/>
+    <string name="defaultLanguage"/>
+    <string name="changeUsername"/>
+    <string name="changePassword"/>
+    <string name="logOff"/>
+    <string name="deleteAccount"/>
+    <string name="deleteAccountFormated"/>
+    <string name="actualPass"/>
+    <string name="newPass"/>
+    <string name="repeatPass"/>
+    <string name="userLogin"/>
+    <string name="passLogin"/>
+    <string name="errorLogin"/>
+    <string name="errorLoginUser"/>
+    <string name="errorLoginPass"/>
+    <string name="errorRegister"/>
+    <string name="errorPassMatch"/>
+    <string name="errorPassReq"/>
+    <string name="errorFields"/>
+    <string name="errorChangePass"/>
+    <string name="changePassSuccess"/>
+    <string name="errorChangeUsername"/>
+    <string name="existingUser"/>
+    <string name="changeUsernameSuccess"/>
+    <string name="registerSuccess"/>
+    <string name="emptyCollection"/>
+    <string name="logOffMessage"/>
+    <string name="yes"/>
+    <string name="no" translatable="false">No</string>
+    <string name="delAccountMessage"/>
+    <string name="delAccountSuccess"/>
+    <string name="alreadyInCollection"/>
+    <string name="addedToCollection"/>
+    <string name="removedFromCollection"/>
+
+    <string-array name="mode">
+        <item/>
+        <item/>
+        <item/>
+    </string-array>
+    <string-array name="language">
+        <item/>
+        <item/>
+    </string-array>
+    <string-array name="tvType">
+        <item/>
+        <item/>
+        <item/>
+        <item/>
+    </string-array>
+
+    <string name="accountError"/>
+
+    <string name="linkToForm"/>
+    <string name="appInfo"/>
+    <string name="appInfoDesc"/>
+</resources>

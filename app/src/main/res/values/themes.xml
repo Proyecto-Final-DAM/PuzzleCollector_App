@@ -1,0 +1,116 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+
+    <!-- Main Menu Styles -->
+    <style name="SpinnerStyle" parent="Widget.AppCompat.ListView.DropDown">
+        <item name="android:divider">#ffffff</item>
+        <item name="android:dividerHeight">2dp</item>
+        <item name="android:background">@drawable/bordermenu_bg</item>
+        <item name="android:padding">2dp</item>
+        <item name="android:layout_height">wrap_content</item>
+    </style>
+
+    <!-- Base application theme. -->
+    <style name="Theme.PuzzleCollector" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+        <!-- Primary brand color. -->
+        <item name="colorPrimary">@color/purple_500</item>
+        <item name="colorPrimaryVariant">@color/purple_700</item>
+        <item name="colorOnPrimary">@color/white</item>
+        <!-- Secondary brand color. -->
+        <item name="colorSecondary">@color/teal_200</item>
+        <item name="colorSecondaryVariant">@color/teal_700</item>
+        <item name="colorOnSecondary">@color/black</item>
+        <!-- Status bar color. -->
+        <item name="android:statusBarColor">?attr/colorPrimaryVariant</item>
+        <!-- Customize your theme here. -->
+        <item name="android:dropDownListViewStyle">@style/SpinnerStyle</item>
+    </style>
+
+
+    <style name="PuzzleCollectorToolbarStyle">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:padding">8dp</item>
+        <item name="android:background">#009f3c</item>
+    </style>
+
+
+    <style name="PuzzleCollectorToolbarButtonStyle">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:padding">5dp</item>
+        <item name="android:scaleType">fitXY</item>
+        <item name="android:background">@drawable/bordermenu_bg</item>
+    </style>
+
+
+    <style name="PuzzleCollectorSpinnerStyle">
+        <item name="android:layout_width">172dp</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:background">@drawable/spmenu_bg</item>
+        <item name="android:padding">5dp</item>
+    </style>
+
+
+    <style name="PuzzleCollectorButtonDialogStyle">
+        <item name="android:textColor">@color/purple_500</item>
+        <item name="android:background">@android:color/transparent</item>
+    </style>
+
+
+    <style name="PuzzleCollectorMenuItem">
+        <item name="android:background">@drawable/menu_bg</item>
+    </style>
+
+
+    <style name="PuzzleCollectorButtonStyle">
+        <item name="android:textColor">#CFCFCF</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textAllCaps">false</item>
+        <item name="android:textSize">17sp</item>
+        <item name="android:paddingTop">10dp</item>
+        <item name="android:paddingBottom">10dp</item>
+        <item name="paddingStart">20dp</item>
+        <item name="paddingEnd">20dp</item>
+        <item name="android:layout_marginTop">10dp</item>
+        <item name="android:layout_marginStart">30dp</item>
+        <item name="android:layout_marginEnd">30dp</item>
+        <item name="backgroundTint">#009f3c</item>
+        <item name="strokeWidth">5dip</item>
+        <item name="strokeColor">@color/black</item>
+        <item name="cornerRadius">15dp</item>
+    </style>
+
+    <style name="PuzzleCollectorCollectionButtonStyle">
+        <item name="android:textColor">@color/white</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textAllCaps">false</item>
+        <item name="android:textSize">16sp</item>
+        <item name="android:paddingTop">10dp</item>
+        <item name="android:paddingBottom">10dp</item>
+        <item name="paddingStart">20dp</item>
+        <item name="paddingEnd">20dp</item>
+        <item name="android:background">@drawable/collection_button_bg</item>
+    </style>
+
+
+    <style name="PuzzleCollectorDialogStyle">
+        <item name="android:layout_width">310dp</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="cardBackgroundColor">#009f3c</item>
+        <item name="strokeColor">@color/black</item>
+        <item name="strokeWidth">3dp</item>
+        <item name="cardCornerRadius">30dp</item>
+    </style>
+
+    <style name="PuzzleCollectorInputStyle" parent="Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense">
+        <item name="android:layout_marginLeft">12dp</item>
+        <item name="android:layout_marginRight">12dp</item>
+        <item name="android:layout_marginTop">5dp</item>
+        <item name="android:textColorHint">#CFCFCF</item>
+        <item name="android:strokeColor">#CFCFCF</item>
+        <item name="boxStrokeWidth">2dp</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+    </style>
+
+</resources>

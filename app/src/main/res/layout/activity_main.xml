@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <RelativeLayout
+        android:id="@+id/toolbar"
+        app:layout_constraintTop_toTopOf="parent"
+        style="@style/PuzzleCollectorToolbarStyle">
+
+        <ImageButton
+            android:id="@+id/ibUser"
+            android:layout_alignParentStart="true"
+            android:src="@drawable/user_icon"
+            android:contentDescription="@string/toolbarButton"
+            style="@style/PuzzleCollectorToolbarButtonStyle"/>
+
+        <Spinner
+            android:id="@+id/spMenu"
+            android:layout_centerInParent="true"
+            style="@style/PuzzleCollectorSpinnerStyle"/>
+
+        <ImageButton
+            android:id="@+id/ibConf"
+            android:layout_alignParentEnd="true"
+            android:src="@drawable/config_icon"
+            android:contentDescription="@string/toolbarButton"
+            style="@style/PuzzleCollectorToolbarButtonStyle" />
+
+    </RelativeLayout>
+    <FrameLayout
+        android:id="@+id/fragment"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/toolbar"/>
+</RelativeLayout>

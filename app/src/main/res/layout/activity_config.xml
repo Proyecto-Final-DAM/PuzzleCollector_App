@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.janicolas.puzzlecollector.activity.ConfigActivity">
+
+    <RelativeLayout
+        android:id="@+id/toolbar"
+        app:layout_constraintTop_toTopOf="parent"
+        style="@style/PuzzleCollectorToolbarStyle">
+
+        <ImageButton
+            android:id="@+id/ibBack"
+            android:layout_alignParentStart="true"
+            android:contentDescription="@string/toolbarButton"
+            android:src="@drawable/back_icon"
+            style="@style/PuzzleCollectorToolbarButtonStyle"/>
+
+    </RelativeLayout>
+
+    <FrameLayout
+        android:id="@+id/settings"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/toolbar"/>
+
+</RelativeLayout>

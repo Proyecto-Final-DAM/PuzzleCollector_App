@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="buy">Comprar</string>
+    <string name="events">Eventos</string>
+    <string name="collection">Colección</string>
+    <string name="user">Usuario</string>
+    <string name="config">Configuracion</string>
+    <string name="infoLogin">Inicia Sesión o Regístrate para acceder a todas las funciones de la app.</string>
+    <string name="login">Iniciar Sesión</string>
+    <string name="register">Registrarse</string>
+    <string name="btWishlist">Mi Lista de Deseados</string>
+    <string name="btCollection">Mi Colección de Puzzles</string>
+    <string name="btSuggest">Sugerir un Puzzle</string>
+    <string name="btAddCollection">Añadir a la Colección</string>
+    <string name="btDelCollection">Quitar de la Colección</string>
+    <string name="tvPrice">Precio: %.2f €</string>
+    <string name="tvBrand">Marca: %s</string>
+    <string name="confDarkModeTitle">Cambiar Modo</string>
+    <string name="defaultDarkMode">Claro</string>
+    <string name="confLanguageTitle">Cambiar Idioma</string>
+    <string name="defaultLanguage">Español</string>
+    <string name="changeUsername">Cambiar Nombre de Usuario</string>
+    <string name="changePassword">Cambiar Contraseña</string>
+    <string name="logOff"><font color="#FF0000">Cerrar Sesión</font></string>
+    <string name="deleteAccount">Eliminar Cuenta</string>
+    <string name="deleteAccountFormated"><font color="#ff0000">Eliminar Cuenta</font></string>
+    <string name="actualPass"><font size="35"><b>Contraseña Actual</b></font></string>
+    <string name="newPass"><font size="35"><b>Nueva Contraseña</b></font></string>
+    <string name="repeatPass"><font size="35"><b>Repite Contraseña</b></font></string>
+    <string name="userLogin"><font size="35"><b>Nombre de Usuario</b></font></string>
+    <string name="passLogin"><font size="35"><b>Contraseña</b></font></string>
+    <string name="errorLogin">Rellena todos los campos para Loguearte</string>
+    <string name="errorRegister">Rellena todos los campos para Registrarte</string>
+    <string name="errorPassMatch">Las contraseñas no coinciden</string>
+    <string name="errorPassReq">La contraseña debe contener:\n    - Mínimo 8 caracteres\n    - Mínimo 1 letra mayúscula\n    - Mínimo 1 número</string>
+    <string name="existingUser">Este nombre de usuario ya está en uso!</string>
+    <string name="registerSuccess">Usuario Registrado Correctamente!</string>
+    <string name="emptyCollection">Tu Colección está vacía!</string>
+    <string name="delAccountMessage">Como medida de seguridad es necesario introducir la contraseña actual para eliminar la cuenta:</string>
+    <string name="alreadyInCollection">Este artículo ya está en tu colección.</string>
+    <string name="addedToCollection">Añadido a la Colección correctamente.</string>
+    <string name="removedFromCollection">Eliminado de la Colección correctamente.</string>
+    <string name="logOffMessage">Estás seguro de querer cerrar sesión?</string>
+    <string name="yes">Si</string>
+    <string name="accountError">Primero debes iniciar sesión</string>
+    <string name="errorLoginUser">Esta cuenta no existe</string>
+    <string name="errorLoginPass">Contraseña Incorrecta</string>
+
+
+    <string-array name="mode">
+        <item>Claro</item>
+        <item>Oscuro</item>
+        <item>Sistema</item>
+    </string-array>
+    <string-array name="language">
+        <item>Español</item>
+        <item>Inglés</item>
+    </string-array>
+    <string-array name="tvType">
+        <item>Puzle Jigsaw</item>
+        <item>Rompecabezas 3D</item>
+        <item>Cubo de Rubik</item>
+        <item>Escape Box</item>
+    </string-array>
+
+
+    <string name="linkToForm">https://forms.gle/4uDPij85rxzC1Kmi6</string>
+    <string name="appInfo">Información de la App</string>
+    <string name="appInfoDesc">Versión: 1.0 – alpha\nAutor: Juan Antonio Nicolás Pérez\nProyecto Fin de Grado DAM\nIES Severo Ochoa(2021 – 2023)</string>
+    <string name="errorChangePass">La contraseña actual y la nueva contraseña son iguales. No se puede realizar el cambio</string>
+    <string name="delAccountSuccess">Cuenta eliminada correctamente!</string>
+    <string name="changePassSuccess">Contraseña cambiada correctamente!</string>
+    <string name="changeUsernameSuccess">Nombre de Usuario cambiado correctamente!</string>
+    <string name="errorChangeUsername">Debes introducir un Nombre de Usuario.</string>
+    <string name="errorFields">Rellena todos los campos</string>
+
+</resources>

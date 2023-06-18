@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="buy">Buy</string>
+    <string name="events">Event</string>
+    <string name="collection">Collection</string>
+    <string name="user">User</string>
+    <string name="config">Configuration</string>
+    <string name="infoLogin">Log In or Sign Up for accesing to all the functions in the app.</string>
+    <string name="login">Log In</string>
+    <string name="register">Sign Up</string>
+    <string name="btWishlist">My WishList</string>
+    <string name="btCollection">My Collection of Puzzles</string>
+    <string name="btSuggest">Suggest a Puzzle</string>
+    <string name="btAddCollection">Add to Collection</string>
+    <string name="btDelCollection">Quit from Collection</string>
+    <string name="tvPrice">Price %.2f €</string>
+    <string name="tvBrand">Brand: %s</string>
+    <string name="confDarkModeTitle">Change Mode</string>
+    <string name="defaultDarkMode">Day</string>
+    <string name="confLanguageTitle">Change Language</string>
+    <string name="defaultLanguage">English</string>
+    <string name="changeUsername">Change Username</string>
+    <string name="changePassword">Change Password</string>
+    <string name="logOff"><font color="#FF0000">Log Off</font></string>
+    <string name="deleteAccount">Delete Account</string>
+    <string name="deleteAccountFormated"><font color="#FF0000">Delete Account</font></string>
+    <string name="actualPass"><font size="35"><b>Actual Password</b></font></string>
+    <string name="newPass"><font size="35"><b>New Password</b></font></string>
+    <string name="repeatPass"><font size="35"><b>Repeat Password</b></font></string>
+    <string name="userLogin"><font size="35"><b>Username</b></font></string>
+    <string name="passLogin"><font size="35"><b>Password</b></font></string>
+    <string name="errorLogin">Fill all fields for Logging In</string>
+    <string name="errorRegister">Fill all fields for Registering</string>
+    <string name="errorPassMatch">Passwords do not match</string>
+    <string name="errorPassReq">Passwords must contain:\n    -Minimum 8 characters\n    - Minimum 1 capital letter\n    - Minimum 1 number</string>
+    <string name="existingUser">This username is already in use!</string>
+    <string name="registerSuccess">User Registered Successfully!</string>
+    <string name="emptyCollection">Your Collection is empty!</string>
+    <string name="alreadyInCollection">This item is already in your collection.</string>
+    <string name="addedToCollection">Successfully added to Collection.</string>
+    <string name="removedFromCollection">Successfully removed from Collection.</string>
+    <string name="logOffMessage">Are you sure you want to Log Off?</string>
+    <string name="yes">Yes</string>
+    <string name="delAccountMessage">As a security measure it is necessary to enter the current password to delete the account:</string>
+    <string name="accountError">First you need to log in</string>
+    <string name="errorLoginUser">This account does not exist</string>
+    <string name="errorLoginPass">Incorrect Password</string>
+
+    <string-array name="mode">
+        <item>Day</item>
+        <item>Night</item>
+        <item>System</item>
+    </string-array>
+    <string-array name="language">
+        <item>Spanish</item>
+        <item>English</item>
+    </string-array>
+    <string-array name="tvType">
+        <item>Jigsaw Puzzle</item>
+        <item>3D Puzzle</item>
+        <item>Rubik Cube</item>
+        <item>Escape Box</item>
+    </string-array>
+
+
+    <string name="linkToForm">https://forms.gle/aErPkf9ZUpeowL1S6</string>
+    <string name="appInfo">App Info</string>
+    <string name="appInfoDesc">Version: 1.0 – alpha\nAuthor: Juan Antonio Nicolás Pérez\nProject End of Grade MAD\nIES Severo Ochoa(2021 – 2023)</string>
+    <string name="errorChangePass">Actual Password and New Password are equal. Cannot do the change.</string>
+    <string name="delAccountSuccess">Account deleted successfully!</string>
+    <string name="changePassSuccess">Password changed successfully!</string>
+    <string name="changeUsernameSuccess">Username changed successfully!</string>
+    <string name="errorChangeUsername">You must introduce an username.</string>
+    <string name="errorFields">Fill all fields</string>
+
+</resources>

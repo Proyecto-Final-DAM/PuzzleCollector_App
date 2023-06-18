@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <TextView
+        android:id="@+id/tvTittle"
+        android:text="@string/deleteAccount"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:layout_marginStart="10dp"
+        android:textSize="20sp"
+        android:textStyle="bold"/>
+
+    <TextView
+        android:id="@+id/tvMessage"
+        android:layout_below="@id/tvTittle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:textSize="17sp"
+        android:layout_margin="10dp"
+        android:textAlignment="center"
+        android:text="@string/delAccountMessage"/>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/tilPass"
+        android:hint="@string/passLogin"
+        android:layout_below="@id/tvMessage"
+        app:endIconMode="password_toggle"
+        style="@style/PuzzleCollectorInputStyle">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:inputType="textPassword"
+            android:id="@+id/etPass"
+            android:ems="10"
+            android:textSize="13sp"
+            android:textColor="@color/black"
+            android:textStyle="normal"
+            android:maxLength="20"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+    </com.google.android.material.textfield.TextInputLayout>
+
+        <Button
+            android:id="@+id/btOk"
+            android:layout_below="@id/tilPass"
+            android:layout_toStartOf="@id/btCancel"
+            android:text="@android:string/ok"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            style="@style/PuzzleCollectorButtonDialogStyle"/>
+
+        <Button
+            android:id="@+id/btCancel"
+            android:layout_below="@id/tilPass"
+            android:layout_alignParentEnd="true"
+            android:text="@android:string/cancel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            style="@style/PuzzleCollectorButtonDialogStyle"/>
+</RelativeLayout>

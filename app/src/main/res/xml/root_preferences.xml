@@ -1,0 +1,56 @@
+<PreferenceScreen
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <PreferenceCategory
+        app:title="@string/user"
+        app:key="user">
+
+        <Preference
+            app:title="@string/changeUsername"
+            app:key="changeUsername" />
+
+        <Preference
+            app:title="@string/changePassword"
+            app:key="changePass" />
+
+        <Preference
+            app:allowDividerAbove="true"
+            app:title="@string/logOff"
+            app:key="logoff" />
+
+        <Preference
+            app:title="@string/deleteAccountFormated"
+            app:key="delAccount" />
+
+    </PreferenceCategory>
+
+    <PreferenceCategory
+        app:title="@string/generalConfTitle">
+
+        <ListPreference
+            app:defaultValue="@string/defaultDarkMode"
+            app:entries="@array/mode"
+            app:entryValues="@array/modeValues"
+            app:key="mode"
+            app:title="@string/confDarkModeTitle"
+            app:useSimpleSummaryProvider="true" />
+
+        <ListPreference
+            app:defaultValue="@string/defaultLanguage"
+            app:entries="@array/language"
+            app:entryValues="@array/languageValues"
+            app:key="language"
+            app:title="@string/confLanguageTitle"
+            app:useSimpleSummaryProvider="true" />
+
+        <Preference
+            app:title="@string/appInfo"
+            app:key="app"
+            app:dialogTitle="@string/appInfo">
+            <intent android:action="com.janicolas.puzzlecollector.activity.InfoActivity"/>
+        </Preference>
+
+    </PreferenceCategory>
+
+</PreferenceScreen>

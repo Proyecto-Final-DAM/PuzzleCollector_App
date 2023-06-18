@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <TextView
+        android:id="@+id/tvTittle"
+        android:text="@string/changePassword"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:layout_marginStart="10dp"
+        android:textSize="20sp"
+        android:textStyle="bold"/>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/tilActualPass"
+        android:hint="@string/actualPass"
+        android:layout_below="@id/tvTittle"
+        app:endIconMode="password_toggle"
+        style="@style/PuzzleCollectorInputStyle">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:inputType="textPassword"
+            android:id="@+id/etActualPass"
+            android:ems="10"
+            android:textSize="13sp"
+            android:textColor="@color/black"
+            android:textStyle="normal"
+            android:maxLength="20"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/tilNewPass"
+        android:hint="@string/newPass"
+        android:layout_below="@id/tilActualPass"
+        app:endIconMode="password_toggle"
+        style="@style/PuzzleCollectorInputStyle">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:inputType="textPassword"
+            android:id="@+id/etNewPass"
+            android:ems="10"
+            android:textSize="13sp"
+            android:textColor="@color/black"
+            android:textStyle="normal"
+            android:maxLength="20"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/tilRepeatPass"
+        android:hint="@string/repeatPass"
+        android:layout_below="@id/tilNewPass"
+        app:endIconMode="password_toggle"
+        style="@style/PuzzleCollectorInputStyle">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:inputType="textPassword"
+            android:id="@+id/etRepeatPass"
+            android:ems="10"
+            android:textSize="13sp"
+            android:textColor="@color/black"
+            android:textStyle="normal"
+            android:maxLength="20"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <TextView
+        android:id="@+id/tvErrorMessage"
+        android:visibility="gone"
+        android:layout_below="@id/tilRepeatPass"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:layout_centerHorizontal="true"
+        android:textColor="#FF0000"
+        android:textSize="18sp"
+        android:textAlignment="center"
+        tools:text="@string/errorPassReq"/>
+
+        <Button
+            android:id="@+id/btOk"
+            android:layout_below="@id/tvErrorMessage"
+            android:text="@android:string/ok"
+            android:layout_toStartOf="@id/btCancel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            style="@style/PuzzleCollectorButtonDialogStyle"/>
+
+        <Button
+            android:id="@+id/btCancel"
+            android:layout_below="@id/tvErrorMessage"
+            android:layout_alignParentEnd="true"
+            android:text="@android:string/cancel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            style="@style/PuzzleCollectorButtonDialogStyle"/>
+</RelativeLayout>
