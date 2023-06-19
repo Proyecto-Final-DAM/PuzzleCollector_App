@@ -13,21 +13,25 @@ import android.widget.ImageView
 import android.widget.TextView
 import android.widget.Toast
 import com.janicolas.puzzlecollector.activity.MainActivity.Companion.user
+import com.janicolas.puzzlecollector.activity.WishlistActivity
 import com.janicolas.puzzlecollector.fragment.CollectionFragment
 import com.janicolas.puzzlecollector.model.ResponseCollection
 import com.janicolas.puzzlecollector.model.ResponsePuzzle
+import com.janicolas.puzzlecollector.model.ResponseUser
 import com.janicolas.puzzlecollector.retrofit.RetrofitService
 import com.janicolas.puzzlecollector.retrofit.api.CollectionAPI
 import com.janicolas.puzzlecollector.retrofit.api.PuzzleAPI
+import com.janicolas.puzzlecollector.retrofit.api.UserAPI
 import com.janicolas.puzzlecollector.util.StringToBitMapConverter.StringToBitMap
 import net.iessochoa.puzzlecollector.R
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 
-class PuzzleDialog(id: Long, val context: Context, collection:Int) {
+class PuzzleDialog(id: Long, val context: Context, collection:Int, val wishlist: WishlistActivity?) {
 
     private val service = RetrofitService().getRetrofit()
+    private val userAPI = service.create(UserAPI::class.java)
     private val puzzleAPI = service.create(PuzzleAPI::class.java)
     private val collectionAPI: CollectionAPI = service.create(CollectionAPI::class.java)
     private lateinit var puzzle: ResponsePuzzle
@@ -87,7 +91,7 @@ class PuzzleDialog(id: Long, val context: Context, collection:Int) {
     }
 
     constructor(id: Long, context: Context, activity:CollectionFragment):
-            this(id, context, 1) {
+            this(id, context, 1, null) {
         if(!this::puzzle.isInitialized)
             initPuzzle(id, "collection")
         tvPrice.visibility = View.GONE
@@ -109,6 +113,26 @@ class PuzzleDialog(id: Long, val context: Context, collection:Int) {
                 ) {
                     if(response.body() != null) {
                         puzzle = response.body()!!
+
+                        btWishlist.setImageResource(getDrawable("WishList"))
+
+                        btWishlist.setOnClickListener{
+                            if(user != null){
+                                if(user!!.puzzles.contains(puzzle)) {
+                                    user!!.puzzles.remove(puzzle)
+                                    btWishlist.setImageResource(R.drawable.no_wishlist_icon)
+                                    if(wishlist != null) {
+                                        wishlist.loadPuzzles()
+                                        dialog.dismiss()
+                                    }
+                                    updateUser()
+                                } else {
+                                    user!!.puzzles.add(puzzle)
+                                    btWishlist.setImageResource(R.drawable.wishlist_icon)
+                                    updateUser()
+                                }
+                            }
+                        }
 
                         ivPuzzleImg.setImageBitmap(StringToBitMap(puzzle.puzzleImg))
                         tvName.text = puzzle.name
@@ -204,6 +228,21 @@ class PuzzleDialog(id: Long, val context: Context, collection:Int) {
             })
     }
 
+    private fun updateUser(){
+        userAPI.updateUser(user!!)
+            .enqueue(object: Callback<ResponseUser>{
+                override fun onResponse(call: Call<ResponseUser>, response: Response<ResponseUser>) {
+                    if(response.body() != null){
+                        user = response.body()
+                    }
+                }
+
+                override fun onFailure(call: Call<ResponseUser>, t: Throwable) {
+                    Toast.makeText(context, "Connection Error!", Toast.LENGTH_SHORT).show()
+                }
+            })
+    }
+
     private fun loadLinkButtons(linkList: List<String>){
         when (linkList.size){
             1 -> {
@@ -256,6 +295,15 @@ class PuzzleDialog(id: Long, val context: Context, collection:Int) {
             "Juegos Besa" -> R.drawable.juegosbesa
             "Mundos De Rubik" -> R.drawable.mundosderubik
             "YouTube" -> R.drawable.youtube
+            "WishList" -> {
+                if(user != null){
+                    if(user!!.puzzles.contains(puzzle))
+                        R.drawable.wishlist_icon
+                    else
+                        R.drawable.no_wishlist_icon
+                } else
+                    R.drawable.no_wishlist_icon
+            }
             else -> R.drawable.web
         }
     }

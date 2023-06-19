@@ -39,9 +39,8 @@
     <Button
         android:id="@+id/btOk"
         android:layout_below="@id/tilNotes"
-        android:layout_alignParentEnd="true"
         android:text="@android:string/ok"
-
+        android:layout_centerHorizontal="true"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         style="@style/PuzzleCollectorButtonDialogStyle"/>

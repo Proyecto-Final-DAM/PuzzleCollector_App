@@ -77,7 +77,7 @@ class RegisterDialog(userPanel: UserPanel, context: Context) {
                         if(response.body() == false){
                             val newUser = ResponseUser(0, etName.text.toString(),
                                 CifradoNicolas.cifrador(etPass.text.toString()),
-                                null, null, false,
+                                "", null, false,
                                 ArrayList())
                             userApi.newUser(newUser)
                                 .enqueue(object: Callback<ResponseUser>{
