@@ -76,8 +76,9 @@ class RegisterDialog(userPanel: UserPanel, context: Context) {
                     override fun onResponse(call: Call<Boolean>, response: Response<Boolean>) {
                         if(response.body() == false){
                             val newUser = ResponseUser(0, etName.text.toString(),
-                                CifradoNicolas.cifrador(etPass.text.toString()),null,null,
-                            false, ArrayList())
+                                CifradoNicolas.cifrador(etPass.text.toString()),
+                                null, null, false,
+                                ArrayList())
                             userApi.newUser(newUser)
                                 .enqueue(object: Callback<ResponseUser>{
                                     override fun onResponse(

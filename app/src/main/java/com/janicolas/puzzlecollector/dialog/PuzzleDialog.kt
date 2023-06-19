@@ -2,8 +2,10 @@ package com.janicolas.puzzlecollector.dialog
 
 import android.app.Dialog
 import android.content.Context
+import android.content.Intent
 import android.graphics.Color
 import android.graphics.drawable.ColorDrawable
+import android.net.Uri
 import android.view.View
 import android.widget.Button
 import android.widget.ImageButton
@@ -23,9 +25,10 @@ import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 
-class PuzzleDialog(id: Long, val context: Context?) {
+class PuzzleDialog(id: Long, val context: Context?, collection:Int) {
 
     private val service = RetrofitService().getRetrofit()
+    private val puzzleAPI = service.create(PuzzleAPI::class.java)
     val collectionAPI: CollectionAPI = service.create(CollectionAPI::class.java)
     private lateinit var puzzle: ResponsePuzzle
     private var dialog: Dialog = Dialog(context!!)
@@ -34,8 +37,12 @@ class PuzzleDialog(id: Long, val context: Context?) {
     private var tvPrice: TextView
     private var tvBrand: TextView
     private var tvType: TextView
+    private var tvLinksType: TextView
     private var btClose: ImageButton
     private var btWishlist: ImageButton
+    private var btLink1: ImageButton
+    private var btLink2: ImageButton
+    private var btLink3: ImageButton
     private var btCollection: Button
 
     init {
@@ -48,8 +55,12 @@ class PuzzleDialog(id: Long, val context: Context?) {
         tvPrice = dialog.findViewById(R.id.tvPrice)
         tvBrand = dialog.findViewById(R.id.tvBrand)
         tvType = dialog.findViewById(R.id.tvType)
+        tvLinksType = dialog.findViewById(R.id.tvLinksType)
         btClose = dialog.findViewById(R.id.ibClose)
         btWishlist = dialog.findViewById(R.id.ibWishlist)
+        btLink1 = dialog.findViewById(R.id.btLink1)
+        btLink2 = dialog.findViewById(R.id.btLink2)
+        btLink3 = dialog.findViewById(R.id.btLink3)
         btCollection = dialog.findViewById(R.id.btCollection)
 
         dialog.create()
@@ -58,15 +69,40 @@ class PuzzleDialog(id: Long, val context: Context?) {
         btClose.setOnClickListener {
             dialog.dismiss()
         }
-        val puzzleAPI = service.create(PuzzleAPI::class.java)
+
+        if(!this::puzzle.isInitialized && collection == 0)
+            initPuzzle(id, "buy")
+
+        btCollection.text = context!!.getString(R.string.btAddCollection)
+        btCollection.setOnClickListener {
+            if (user != null)
+                addToCollection(user!!.id, puzzle.id)
+            else
+                Toast.makeText(
+                    context, context.getString(R.string.accountError),
+                    Toast.LENGTH_SHORT).show()
+        }
+    }
+
+    constructor(id: Long, context: Context?, activity:CollectionFragment): this(id, context, 1) {
+        if(!this::puzzle.isInitialized)
+            initPuzzle(id, "collection")
+        tvPrice.visibility = View.GONE
+        btCollection.text = context!!.getString(R.string.btDelCollection)
+        btCollection.setOnClickListener {
+            delFromCollection(user!!.id, puzzle.id, activity)
+        }
+    }
+
+    private fun initPuzzle(id: Long, type: String){
         puzzleAPI.getPuzzleById(id)
-            .enqueue(object : Callback<ResponsePuzzle> {
-                override fun onResponse(
-                    call: Call<ResponsePuzzle>,
+            .enqueue(object: Callback<ResponsePuzzle>{
+                override fun onResponse(call: Call<ResponsePuzzle>,
                     response: Response<ResponsePuzzle>
                 ) {
-                    if (response.body() != null) {
+                    if(response.body() != null) {
                         puzzle = response.body()!!
+
                         ivPuzzleImg.setImageBitmap(StringToBitMap(puzzle.puzzleImg))
                         tvName.text = puzzle.name
                         tvPrice.text = String.format(
@@ -85,6 +121,27 @@ class PuzzleDialog(id: Long, val context: Context?) {
                             4 -> types[3]
                             else -> "Error in Code"
                         }
+                        if(type == "buy"){
+                            tvLinksType.text = context.getString(R.string.buyLinks)
+                            val buyLinks = puzzle.links.substring(0,
+                                puzzle.links.indexOf("\r\n\r\n#TutorialLinks"))
+                            val linkList = buyLinks.split("\r\n")
+                            loadLinkButtons(linkList)
+                        } else if(type == "collection"){
+                            tvLinksType.text = context.getString(R.string.tutorialLinks)
+                            if(puzzle.links.contains("#TutorialLinks\r\n")){
+                                val collectionLinks = puzzle.links.substring(
+                                    puzzle.links.indexOf("#TutorialLinks\r\n")+16,
+                                    puzzle.links.length)
+                                println(collectionLinks)
+                                val linkList = collectionLinks.split("\r\n")
+                                loadLinkButtons(linkList)
+                            } else {
+                                btLink1.visibility = View.GONE
+                                btLink2.visibility = View.GONE
+                                btLink3.visibility = View.GONE
+                            }
+                        }
                     }
                 }
 
@@ -92,24 +149,8 @@ class PuzzleDialog(id: Long, val context: Context?) {
                     Toast.makeText(context, "Connection Error!", Toast.LENGTH_SHORT).show()
                 }
             })
-        btCollection.text = context!!.getString(R.string.btAddCollection)
-        btCollection.setOnClickListener {
-            if (user != null)
-                addToCollection(user!!.id, puzzle.id)
-            else
-                Toast.makeText(
-                    context, context.getString(R.string.accountError),
-                    Toast.LENGTH_SHORT).show()
-        }
     }
 
-    constructor(id: Long, context: Context?, activity:CollectionFragment): this(id, context) {
-        tvPrice.visibility = View.GONE
-        btCollection.text = context!!.getString(R.string.btDelCollection)
-        btCollection.setOnClickListener {
-            delFromCollection(user!!.id, puzzle.id, activity)
-        }
-    }
     private fun addToCollection(userId: Long, puzzleId: Long){
         collectionAPI.existsCollection(userId, puzzleId)
             .enqueue(object: Callback<Boolean>{
@@ -154,5 +195,61 @@ class PuzzleDialog(id: Long, val context: Context?) {
                     Toast.makeText(context, "Connection Error!", Toast.LENGTH_SHORT).show()
                 }
             })
+    }
+
+    private fun loadLinkButtons(linkList: List<String>){
+        when (linkList.size){
+            1 -> {
+                btLink1.setImageResource(getDrawable(linkList[0].split(" || ")[1]))
+                btLink1.setOnClickListener{
+                    val uri = Uri.parse(linkList[0].split(" || ")[0])
+                    context!!.startActivity(Intent(Intent.ACTION_VIEW, uri))
+                }
+                btLink2.visibility = View.GONE
+                btLink3.visibility = View.GONE
+            }
+            2 -> {
+                btLink1.setImageResource(getDrawable(linkList[0].split(" || ")[1]))
+                btLink1.setOnClickListener{
+                    val uri = Uri.parse(linkList[0].split(" || ")[0])
+                    context!!.startActivity(Intent(Intent.ACTION_VIEW, uri))
+                }
+                btLink2.setImageResource(getDrawable(linkList[1].split(" || ")[1]))
+                btLink2.setOnClickListener{
+                    val uri = Uri.parse(linkList[1].split(" || ")[0])
+                    context!!.startActivity(Intent(Intent.ACTION_VIEW, uri))
+                }
+                btLink3.visibility = View.GONE
+            }
+            3 -> {
+                btLink1.setImageResource(getDrawable(linkList[0].split(" || ")[1]))
+                btLink1.setOnClickListener{
+                    val uri = Uri.parse(linkList[0].split(" || ")[0])
+                    context!!.startActivity(Intent(Intent.ACTION_VIEW, uri))
+                }
+                btLink2.setImageResource(getDrawable(linkList[1].split(" || ")[1]))
+                btLink2.setOnClickListener{
+                    val uri = Uri.parse(linkList[1].split(" || ")[0])
+                    context!!.startActivity(Intent(Intent.ACTION_VIEW, uri))
+                }
+                btLink3.setImageResource(getDrawable(linkList[2].split(" || ")[1]))
+                btLink3.setOnClickListener{
+                    val uri = Uri.parse(linkList[2].split(" || ")[0])
+                    context!!.startActivity(Intent(Intent.ACTION_VIEW, uri))
+                }
+            }
+        }
+    }
+
+    private fun getDrawable(key:String):Int {
+        return when (key) {
+            "KubeKings" -> R.drawable.kubekings
+            "Casa Del Puzzle" -> R.drawable.casa_del_puzzle
+            "Amazon" -> R.drawable.amazon
+            "Juegos Besa" -> R.drawable.juegosbesa
+            "Mundos De Rubik" -> R.drawable.mundosderubik
+            "YouTube" -> R.drawable.youtube
+            else -> R.drawable.web
+        }
     }
 }

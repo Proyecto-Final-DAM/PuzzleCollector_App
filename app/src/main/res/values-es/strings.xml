@@ -21,7 +21,7 @@
     <string name="defaultLanguage">Español</string>
     <string name="changeUsername">Cambiar Nombre de Usuario</string>
     <string name="changePassword">Cambiar Contraseña</string>
-    <string name="logOff"><font color="#FF0000">Cerrar Sesión</font></string>
+    <string name="logOff">Cerrar Sesión</string>
     <string name="deleteAccount">Eliminar Cuenta</string>
     <string name="deleteAccountFormated"><font color="#ff0000">Eliminar Cuenta</font></string>
     <string name="actualPass"><font size="35"><b>Contraseña Actual</b></font></string>
@@ -73,5 +73,13 @@
     <string name="changeUsernameSuccess">Nombre de Usuario cambiado correctamente!</string>
     <string name="errorChangeUsername">Debes introducir un Nombre de Usuario.</string>
     <string name="errorFields">Rellena todos los campos</string>
+    <string name="buyLinks">Enlaces de Compra:</string>
+    <string name="tutorialLinks">Enlaces de Tutorial:</string>
+    <string name="imgTooBig">La imagen seleccionada es muy grande! (Max. 100kb)</string>
+    <string name="imgUploadedSuccess">El icono de Usuario ha sido actualizado correctamente.</string>
+    <string name="imgSelector">Seleccionar Imagen</string>
+    <string name="imgSelectorMessage">¿Desea cambiar su imagen actual de usuario o eliminarla y dejar la imagen por defecto?</string>
+    <string name="changeImg">Cambiar</string>
+    <string name="deleteImg">Eliminar</string>
 
 </resources>

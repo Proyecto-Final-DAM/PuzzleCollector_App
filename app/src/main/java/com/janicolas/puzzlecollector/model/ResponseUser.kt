@@ -6,7 +6,7 @@ data class ResponseUser(
     @SerializedName("id") var id: Long,
     @SerializedName("username") var username: String,
     @SerializedName("password") var password: String,
-    @SerializedName("iconPath") var iconPath: String?,
+    @SerializedName("iconPath") var icon: String?,
     @SerializedName("iconImg") var iconImg: String?,
     @SerializedName("admin") var admin: Boolean,
     @SerializedName("puzzles") var puzzles:List<ResponsePuzzle>

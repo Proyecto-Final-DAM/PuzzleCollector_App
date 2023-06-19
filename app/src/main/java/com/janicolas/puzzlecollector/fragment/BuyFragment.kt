@@ -51,7 +51,7 @@ class BuyFragment : Fragment() {
                     puzzleAdapter.onPuzzleClickListener = object :
                         PuzzleAdapter.OnPuzzleClickListener {
                         override fun onPuzzleClick(id: Long) {
-                            PuzzleDialog(id, context)
+                            PuzzleDialog(id, context, 0)
                         }
                     }
                 }

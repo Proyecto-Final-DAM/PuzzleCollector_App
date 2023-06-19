@@ -2,6 +2,7 @@
     <string name="app_name" translatable="false">PuzzleCollector</string>
     <string name="toolbarButton" translatable="false">ToolbarButton</string>
     <string name="generalConfTitle" translatable="false">General</string>
+    <string name="links" translatable="false">Links</string>
     <string name="buy"/>
     <string name="events"/>
     <string name="collection"/>
@@ -53,6 +54,14 @@
     <string name="alreadyInCollection"/>
     <string name="addedToCollection"/>
     <string name="removedFromCollection"/>
+    <string name="buyLinks"/>
+    <string name="tutorialLinks"/>
+    <string name="imgSelector"/>
+    <string name="imgSelectorMessage"/>
+    <string name="changeImg"/>
+    <string name="deleteImg"/>
+    <string name="imgTooBig"/>
+    <string name="imgUploadedSuccess"/>
 
     <string-array name="mode">
         <item/>

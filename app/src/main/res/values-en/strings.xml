@@ -21,7 +21,7 @@
     <string name="defaultLanguage">English</string>
     <string name="changeUsername">Change Username</string>
     <string name="changePassword">Change Password</string>
-    <string name="logOff"><font color="#FF0000">Log Off</font></string>
+    <string name="logOff">Log Off</string>
     <string name="deleteAccount">Delete Account</string>
     <string name="deleteAccountFormated"><font color="#FF0000">Delete Account</font></string>
     <string name="actualPass"><font size="35"><b>Actual Password</b></font></string>
@@ -72,5 +72,13 @@
     <string name="changeUsernameSuccess">Username changed successfully!</string>
     <string name="errorChangeUsername">You must introduce an username.</string>
     <string name="errorFields">Fill all fields</string>
+    <string name="buyLinks">Buy Links:</string>
+    <string name="tutorialLinks">Tutorial Links:</string>
+    <string name="imgTooBig">The selected image is too big! (Max. 100kb)</string>
+    <string name="imgUploadedSuccess">The User image was uploaded successfully.</string>
+    <string name="imgSelector">Select Image</string>
+    <string name="imgSelectorMessage">Do you want to change your actual user icon image or delete it and set it to default?</string>
+    <string name="changeImg">Change</string>
+    <string name="deleteImg">Delete</string>
 
 </resources>

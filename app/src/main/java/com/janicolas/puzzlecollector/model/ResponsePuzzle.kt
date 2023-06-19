@@ -10,5 +10,5 @@ data class ResponsePuzzle(
     @SerializedName("type") val type: Int,
     @SerializedName("brand") val brand: String,
     @SerializedName("description") val description: String?,
-    @SerializedName("linksPath") val linksPath: String
+    @SerializedName("linksPath") val links: String
 )

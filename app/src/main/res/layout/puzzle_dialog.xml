@@ -102,12 +102,61 @@
                 android:padding="5dp"
                 android:gravity="center"/>
 
+            <TextView
+                android:id="@+id/tvLinksType"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                tools:text="@string/buyLinks"
+                android:layout_margin="5dp"
+                android:layout_centerHorizontal="true"
+                android:layout_below="@id/tvType"
+                android:textColor="@color/white"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                android:padding="5dp"
+                android:gravity="center"/>
+
+            <RelativeLayout
+                android:id="@+id/links"
+                android:layout_below="@id/tvLinksType"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true">
+
+                <ImageButton
+                    android:id="@+id/btLink1"
+                    android:layout_width="70dp"
+                    android:layout_height="70dp"
+                    android:scaleType="fitXY"
+                    android:contentDescription="@string/links"
+                    tools:src="@drawable/kubekings" />
+
+                <ImageButton
+                    android:id="@+id/btLink2"
+                    android:layout_width="70dp"
+                    android:layout_height="70dp"
+                    android:scaleType="fitXY"
+                    android:layout_toEndOf="@id/btLink1"
+                    android:contentDescription="@string/links"
+                    tools:src="@drawable/juegosbesa" />
+
+                <ImageButton
+                    android:id="@+id/btLink3"
+                    android:layout_width="70dp"
+                    android:layout_height="70dp"
+                    android:scaleType="fitXY"
+                    android:layout_toEndOf="@id/btLink2"
+                    android:contentDescription="@string/links"
+                    tools:src="@drawable/amazon" />
+            </RelativeLayout>
+
+
             <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/btCollection"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 tools:text="@string/btAddCollection"
-                android:layout_below="@id/tvType"
+                android:layout_below="@id/links"
                 style="@style/PuzzleCollectorCollectionButtonStyle"/>
 
         </RelativeLayout>
