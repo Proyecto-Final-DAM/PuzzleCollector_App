@@ -5,5 +5,5 @@ import com.google.gson.annotations.SerializedName
 data class ResponseCollection(
     @SerializedName("user") var user:ResponseUser,
     @SerializedName("puzzle") var puzzle: ResponsePuzzle,
-    @SerializedName("best") var best:String?
+    @SerializedName("notes") var notes:String
 )

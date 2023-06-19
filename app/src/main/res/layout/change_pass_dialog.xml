@@ -20,6 +20,8 @@
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/tilActualPass"
         android:hint="@string/actualPass"
+        app:counterEnabled="true"
+        app:counterMaxLength="20"
         android:layout_below="@id/tvTittle"
         app:endIconMode="password_toggle"
         style="@style/PuzzleCollectorInputStyle">
@@ -39,6 +41,8 @@
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/tilNewPass"
         android:hint="@string/newPass"
+        app:counterEnabled="true"
+        app:counterMaxLength="20"
         android:layout_below="@id/tilActualPass"
         app:endIconMode="password_toggle"
         style="@style/PuzzleCollectorInputStyle">
@@ -58,6 +62,8 @@
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/tilRepeatPass"
         android:hint="@string/repeatPass"
+        app:counterEnabled="true"
+        app:counterMaxLength="20"
         android:layout_below="@id/tilNewPass"
         app:endIconMode="password_toggle"
         style="@style/PuzzleCollectorInputStyle">
@@ -87,21 +93,22 @@
         android:textAlignment="center"
         tools:text="@string/errorPassReq"/>
 
-        <Button
-            android:id="@+id/btOk"
-            android:layout_below="@id/tvErrorMessage"
-            android:text="@android:string/ok"
-            android:layout_toStartOf="@id/btCancel"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            style="@style/PuzzleCollectorButtonDialogStyle"/>
+    <Button
+        android:id="@+id/btCancel"
+        android:layout_below="@id/tilRepeatPass"
+        android:layout_toStartOf="@id/btOk"
+        android:text="@android:string/cancel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        style="@style/PuzzleCollectorButtonDialogStyle"/>
 
-        <Button
-            android:id="@+id/btCancel"
-            android:layout_below="@id/tvErrorMessage"
-            android:layout_alignParentEnd="true"
-            android:text="@android:string/cancel"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            style="@style/PuzzleCollectorButtonDialogStyle"/>
+    <Button
+        android:id="@+id/btOk"
+        android:layout_below="@id/tilRepeatPass"
+        android:layout_alignParentEnd="true"
+        android:text="@android:string/ok"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        style="@style/PuzzleCollectorButtonDialogStyle"/>
+
 </RelativeLayout>

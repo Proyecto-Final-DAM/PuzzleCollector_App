@@ -65,7 +65,7 @@ class CollectionFragment : Fragment() {
                         puzzleAdapter.onPuzzleClickListener = object :
                             PuzzleAdapter.OnPuzzleClickListener {
                             override fun onPuzzleClick(id: Long) {
-                                PuzzleDialog(id, context, this@CollectionFragment)
+                                PuzzleDialog(id, requireContext(), this@CollectionFragment)
                             }
                         }
                     }

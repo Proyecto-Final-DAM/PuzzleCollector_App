@@ -4,12 +4,11 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:orientation="vertical"
-    xmlns:tools="http://schemas.android.com/tools">
+    android:orientation="vertical">
 
     <TextView
         android:id="@+id/tvTittle"
-        android:text="@string/deleteAccount"
+        android:text="@string/btNotes"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
@@ -17,53 +16,34 @@
         android:textSize="20sp"
         android:textStyle="bold"/>
 
-    <TextView
-        android:id="@+id/tvMessage"
-        android:layout_below="@id/tvTittle"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:textSize="17sp"
-        android:layout_margin="10dp"
-        android:textAlignment="center"
-        android:text="@string/delAccountMessage"/>
-
     <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/tilPass"
-        android:hint="@string/passLogin"
+        android:id="@+id/tilNotes"
+        android:layout_below="@id/tvTittle"
         app:counterEnabled="true"
-        app:counterMaxLength="20"
-        android:layout_below="@id/tvMessage"
-        app:endIconMode="password_toggle"
+        app:counterMaxLength="300"
         style="@style/PuzzleCollectorInputStyle">
 
         <com.google.android.material.textfield.TextInputEditText
-            android:inputType="textPassword"
-            android:id="@+id/etPass"
+            android:inputType="textMultiLine"
+            android:id="@+id/etNotes"
             android:ems="10"
             android:textSize="13sp"
             android:textColor="@color/black"
             android:textStyle="normal"
-            android:maxLength="20"
+            android:gravity="top"
+            android:maxLength="300"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"/>
+            android:layout_height="170dp"/>
     </com.google.android.material.textfield.TextInputLayout>
 
     <Button
-        android:id="@+id/btCancel"
-        android:layout_below="@id/tilPass"
-        android:layout_toStartOf="@id/btOk"
-        android:text="@android:string/cancel"
+        android:id="@+id/btOk"
+        android:layout_below="@id/tilNotes"
+        android:layout_alignParentEnd="true"
+        android:text="@android:string/ok"
+
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         style="@style/PuzzleCollectorButtonDialogStyle"/>
 
-    <Button
-        android:id="@+id/btOk"
-        android:layout_below="@id/tilPass"
-        android:layout_alignParentEnd="true"
-        android:text="@android:string/ok"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        style="@style/PuzzleCollectorButtonDialogStyle"/>
 </RelativeLayout>

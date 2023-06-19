@@ -25,13 +25,13 @@ import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 
-class PuzzleDialog(id: Long, val context: Context?, collection:Int) {
+class PuzzleDialog(id: Long, val context: Context, collection:Int) {
 
     private val service = RetrofitService().getRetrofit()
     private val puzzleAPI = service.create(PuzzleAPI::class.java)
-    val collectionAPI: CollectionAPI = service.create(CollectionAPI::class.java)
+    private val collectionAPI: CollectionAPI = service.create(CollectionAPI::class.java)
     private lateinit var puzzle: ResponsePuzzle
-    private var dialog: Dialog = Dialog(context!!)
+    private var dialog: Dialog = Dialog(context)
     private var ivPuzzleImg: ImageView
     private var tvName: TextView
     private var tvPrice: TextView
@@ -40,6 +40,7 @@ class PuzzleDialog(id: Long, val context: Context?, collection:Int) {
     private var tvLinksType: TextView
     private var btClose: ImageButton
     private var btWishlist: ImageButton
+    private var btNotes: Button
     private var btLink1: ImageButton
     private var btLink2: ImageButton
     private var btLink3: ImageButton
@@ -57,6 +58,7 @@ class PuzzleDialog(id: Long, val context: Context?, collection:Int) {
         tvType = dialog.findViewById(R.id.tvType)
         tvLinksType = dialog.findViewById(R.id.tvLinksType)
         btClose = dialog.findViewById(R.id.ibClose)
+        btNotes = dialog.findViewById(R.id.btNotes)
         btWishlist = dialog.findViewById(R.id.ibWishlist)
         btLink1 = dialog.findViewById(R.id.btLink1)
         btLink2 = dialog.findViewById(R.id.btLink2)
@@ -73,7 +75,7 @@ class PuzzleDialog(id: Long, val context: Context?, collection:Int) {
         if(!this::puzzle.isInitialized && collection == 0)
             initPuzzle(id, "buy")
 
-        btCollection.text = context!!.getString(R.string.btAddCollection)
+        btCollection.text = context.getString(R.string.btAddCollection)
         btCollection.setOnClickListener {
             if (user != null)
                 addToCollection(user!!.id, puzzle.id)
@@ -84,11 +86,16 @@ class PuzzleDialog(id: Long, val context: Context?, collection:Int) {
         }
     }
 
-    constructor(id: Long, context: Context?, activity:CollectionFragment): this(id, context, 1) {
+    constructor(id: Long, context: Context, activity:CollectionFragment):
+            this(id, context, 1) {
         if(!this::puzzle.isInitialized)
             initPuzzle(id, "collection")
         tvPrice.visibility = View.GONE
-        btCollection.text = context!!.getString(R.string.btDelCollection)
+        btNotes.visibility = View.VISIBLE
+        btNotes.setOnClickListener{
+            NotesDialog(context, user!!.id, puzzle.id)
+        }
+        btCollection.text = context.getString(R.string.btDelCollection)
         btCollection.setOnClickListener {
             delFromCollection(user!!.id, puzzle.id, activity)
         }
@@ -106,7 +113,7 @@ class PuzzleDialog(id: Long, val context: Context?, collection:Int) {
                         ivPuzzleImg.setImageBitmap(StringToBitMap(puzzle.puzzleImg))
                         tvName.text = puzzle.name
                         tvPrice.text = String.format(
-                            context!!.getString(R.string.tvPrice),
+                            context.getString(R.string.tvPrice),
                             puzzle.price
                         )
                         tvBrand.text = String.format(
@@ -156,14 +163,14 @@ class PuzzleDialog(id: Long, val context: Context?, collection:Int) {
             .enqueue(object: Callback<Boolean>{
                 override fun onResponse(call: Call<Boolean>, response: Response<Boolean>) {
                     if(response.body() == true)
-                        Toast.makeText(context, context?.getString(R.string.alreadyInCollection),
+                        Toast.makeText(context, context.getString(R.string.alreadyInCollection),
                             Toast.LENGTH_SHORT).show()
                     else {
-                        collectionAPI.createCollection(userId, puzzleId, null)
+                        collectionAPI.createCollection(userId, puzzleId, "")
                             .enqueue(object: Callback<ResponseCollection>{
                                 override fun onResponse(call: Call<ResponseCollection>,
                                     response: Response<ResponseCollection>) {
-                                    Toast.makeText(context, context!!.getString(R.string.addedToCollection),
+                                    Toast.makeText(context, context.getString(R.string.addedToCollection),
                                         Toast.LENGTH_SHORT).show()
                                 }
 
@@ -185,7 +192,7 @@ class PuzzleDialog(id: Long, val context: Context?, collection:Int) {
             .enqueue(object: Callback<Boolean>{
                 override fun onResponse(call: Call<Boolean>,
                                         response: Response<Boolean>) {
-                    Toast.makeText(context, context?.getString(R.string.removedFromCollection),
+                    Toast.makeText(context, context.getString(R.string.removedFromCollection),
                         Toast.LENGTH_SHORT).show()
                     dialog.dismiss()
                     activity.loadPuzzles()
@@ -203,7 +210,7 @@ class PuzzleDialog(id: Long, val context: Context?, collection:Int) {
                 btLink1.setImageResource(getDrawable(linkList[0].split(" || ")[1]))
                 btLink1.setOnClickListener{
                     val uri = Uri.parse(linkList[0].split(" || ")[0])
-                    context!!.startActivity(Intent(Intent.ACTION_VIEW, uri))
+                    context.startActivity(Intent(Intent.ACTION_VIEW, uri))
                 }
                 btLink2.visibility = View.GONE
                 btLink3.visibility = View.GONE
@@ -212,12 +219,12 @@ class PuzzleDialog(id: Long, val context: Context?, collection:Int) {
                 btLink1.setImageResource(getDrawable(linkList[0].split(" || ")[1]))
                 btLink1.setOnClickListener{
                     val uri = Uri.parse(linkList[0].split(" || ")[0])
-                    context!!.startActivity(Intent(Intent.ACTION_VIEW, uri))
+                    context.startActivity(Intent(Intent.ACTION_VIEW, uri))
                 }
                 btLink2.setImageResource(getDrawable(linkList[1].split(" || ")[1]))
                 btLink2.setOnClickListener{
                     val uri = Uri.parse(linkList[1].split(" || ")[0])
-                    context!!.startActivity(Intent(Intent.ACTION_VIEW, uri))
+                    context.startActivity(Intent(Intent.ACTION_VIEW, uri))
                 }
                 btLink3.visibility = View.GONE
             }
@@ -225,17 +232,17 @@ class PuzzleDialog(id: Long, val context: Context?, collection:Int) {
                 btLink1.setImageResource(getDrawable(linkList[0].split(" || ")[1]))
                 btLink1.setOnClickListener{
                     val uri = Uri.parse(linkList[0].split(" || ")[0])
-                    context!!.startActivity(Intent(Intent.ACTION_VIEW, uri))
+                    context.startActivity(Intent(Intent.ACTION_VIEW, uri))
                 }
                 btLink2.setImageResource(getDrawable(linkList[1].split(" || ")[1]))
                 btLink2.setOnClickListener{
                     val uri = Uri.parse(linkList[1].split(" || ")[0])
-                    context!!.startActivity(Intent(Intent.ACTION_VIEW, uri))
+                    context.startActivity(Intent(Intent.ACTION_VIEW, uri))
                 }
                 btLink3.setImageResource(getDrawable(linkList[2].split(" || ")[1]))
                 btLink3.setOnClickListener{
                     val uri = Uri.parse(linkList[2].split(" || ")[0])
-                    context!!.startActivity(Intent(Intent.ACTION_VIEW, uri))
+                    context.startActivity(Intent(Intent.ACTION_VIEW, uri))
                 }
             }
         }

@@ -42,6 +42,8 @@
     <string name="removedFromCollection">Eliminado de la Colección correctamente.</string>
     <string name="logOffMessage">Estás seguro de querer cerrar sesión?</string>
     <string name="yes">Si</string>
+    <string name="btNotes">Notas</string>
+    <string name="notesUpdatedSuccess">Las Notas de la Colección fueron actualizadas correctamente.</string>
     <string name="accountError">Primero debes iniciar sesión</string>
     <string name="errorLoginUser">Esta cuenta no existe</string>
     <string name="errorLoginPass">Contraseña Incorrecta</string>

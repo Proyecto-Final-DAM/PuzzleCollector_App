@@ -102,6 +102,18 @@
                 android:padding="5dp"
                 android:gravity="center"/>
 
+            <Button
+                android:id="@+id/btNotes"
+                android:visibility="gone"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/btNotes"
+                android:textStyle="bold"
+                android:textColor="@color/white"
+                android:layout_centerHorizontal="true"
+                android:background="@android:color/transparent"
+                android:layout_below="@id/tvType"/>
+
             <TextView
                 android:id="@+id/tvLinksType"
                 android:layout_width="wrap_content"
@@ -109,7 +121,7 @@
                 tools:text="@string/buyLinks"
                 android:layout_margin="5dp"
                 android:layout_centerHorizontal="true"
-                android:layout_below="@id/tvType"
+                android:layout_below="@id/btNotes"
                 android:textColor="@color/white"
                 android:textSize="16sp"
                 android:textStyle="bold"

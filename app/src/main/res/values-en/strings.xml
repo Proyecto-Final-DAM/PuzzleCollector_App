@@ -42,6 +42,8 @@
     <string name="logOffMessage">Are you sure you want to Log Off?</string>
     <string name="yes">Yes</string>
     <string name="delAccountMessage">As a security measure it is necessary to enter the current password to delete the account:</string>
+    <string name="btNotes">Notes</string>
+    <string name="notesUpdatedSuccess">Collection Notes were updated successfully.</string>
     <string name="accountError">First you need to log in</string>
     <string name="errorLoginUser">This account does not exist</string>
     <string name="errorLoginPass">Incorrect Password</string>

@@ -62,6 +62,8 @@
     <string name="deleteImg"/>
     <string name="imgTooBig"/>
     <string name="imgUploadedSuccess"/>
+    <string name="btNotes"/>
+    <string name="notesUpdatedSuccess"/>
 
     <string-array name="mode">
         <item/>
