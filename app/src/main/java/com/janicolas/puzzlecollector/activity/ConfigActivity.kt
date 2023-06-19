@@ -115,7 +115,7 @@ class ConfigActivity : AppCompatActivity() {
                         val service = RetrofitService().getRetrofit()
                         val userApi = service.create(UserAPI::class.java)
 
-                        userApi.deleteUser(user!!.id)
+                        userApi.deleteUser(user!!.Id)
                             .enqueue(object: Callback<Boolean>{
                                 override fun onResponse(call: Call<Boolean>,
                                     response: Response<Boolean>) {

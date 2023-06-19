@@ -82,7 +82,7 @@ class PuzzleDialog(id: Long, val context: Context, collection:Int, val wishlist:
         btCollection.text = context.getString(R.string.btAddCollection)
         btCollection.setOnClickListener {
             if (user != null)
-                addToCollection(user!!.id, puzzle.id)
+                addToCollection(user!!.Id, puzzle.id)
             else
                 Toast.makeText(
                     context, context.getString(R.string.accountError),
@@ -97,11 +97,11 @@ class PuzzleDialog(id: Long, val context: Context, collection:Int, val wishlist:
         tvPrice.visibility = View.GONE
         btNotes.visibility = View.VISIBLE
         btNotes.setOnClickListener{
-            NotesDialog(context, user!!.id, puzzle.id)
+            NotesDialog(context, user!!.Id, puzzle.id)
         }
         btCollection.text = context.getString(R.string.btDelCollection)
         btCollection.setOnClickListener {
-            delFromCollection(user!!.id, puzzle.id, activity)
+            delFromCollection(user!!.Id, puzzle.id, activity)
         }
     }
 
@@ -131,7 +131,9 @@ class PuzzleDialog(id: Long, val context: Context, collection:Int, val wishlist:
                                     btWishlist.setImageResource(R.drawable.wishlist_icon)
                                     updateUser()
                                 }
-                            }
+                            } else
+                                Toast.makeText(context, context.getString(R.string.accountError),
+                                Toast.LENGTH_SHORT).show()
                         }
 
                         ivPuzzleImg.setImageBitmap(StringToBitMap(puzzle.puzzleImg))

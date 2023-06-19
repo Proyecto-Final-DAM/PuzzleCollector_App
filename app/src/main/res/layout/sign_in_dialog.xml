@@ -52,6 +52,8 @@
             <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/tilName"
                 android:hint="@string/userLogin"
+                app:counterEnabled="true"
+                app:counterMaxLength="25"
                 android:layout_below="@id/ibClose"
                 style="@style/PuzzleCollectorInputStyle">
 
@@ -69,6 +71,8 @@
             <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/tilPass"
                 android:hint="@string/passLogin"
+                app:counterEnabled="true"
+                app:counterMaxLength="20"
                 android:layout_below="@id/tilName"
                 app:endIconMode="password_toggle"
                 style="@style/PuzzleCollectorInputStyle">
@@ -87,6 +91,8 @@
             <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/tilRepeatPass"
                 android:hint="@string/repeatPass"
+                app:counterEnabled="true"
+                app:counterMaxLength="20"
                 android:layout_below="@id/tilPass"
                 app:endIconMode="password_toggle"
                 style="@style/PuzzleCollectorInputStyle">

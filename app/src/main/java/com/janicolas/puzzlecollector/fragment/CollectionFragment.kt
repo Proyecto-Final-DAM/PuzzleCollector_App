@@ -46,7 +46,7 @@ class CollectionFragment : Fragment() {
         val service = RetrofitService().getRetrofit()
         val collectionAPI = service.create(CollectionAPI::class.java)
         if(user != null) {
-            collectionAPI.getCollectionByUserId(user!!.id)
+            collectionAPI.getCollectionByUserId(user!!.Id)
                 .enqueue(object : Callback<List<ResponseCollection>>{
                     override fun onResponse(
                         call: Call<List<ResponseCollection>>,
